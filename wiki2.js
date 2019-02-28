@@ -35,17 +35,17 @@
 
 	 }/*end goDataJson*/
 
-
+	 //affiche dynamiquement des propositions de recherche sur base des lettres indiquées dans l'input
 	 function displayResultLinkList(data){
-		 		console.log("go list link");
+		 		//console.log("go list link");
+				//vide la liste si elle existe deja
 				var listingPresent = document.querySelector('#bloqueur #listing');
 				listingPresent.innerHTML="";
 
 				for(i=0;i<data[1].length;i++){
 						 					 			//var idx = data[1][i];var idex = idx.replace(/\s+/g,'_');
-														//console.log("idx "+idex);
+														//créée des liste de proposition
 						 								var listerNom = "<li id='"+i+"'>"+data[1][i]+"</li>";
-						 										//console.log(answer);
 
 						 								document.querySelector('#listing').insertAdjacentHTML('beforeend', listerNom);
 														//document.getElementById(idex).setAttribute("number",i);
@@ -54,7 +54,7 @@
 				var liPropo = document.querySelectorAll("#listing li");
 
 				for (const liPro of liPropo) {
-						 	 	  					//console.log(liPro.id);
+						 	 	  					//au clic sur un élément de la liste affiche le contenu lié à cet élément
 						 	 							liPro.addEventListener("click", function() {
 						 	 	 																								 				//console.log("click");
 						 	 	 																												var idier = liPro.id;
@@ -74,15 +74,18 @@
 						 	 	 																											});/*end addEventListener*/
 				}/*end for*/
 
-	 }
+	 }/*end displayResultLinkList*/
 
 
 	 //affiche le résultat après le clic sur le btn cherchez
 	 function displayDataResult(data,urlNoJson){
 
+		 			 //si input vide indique un message : "pas de résultat"
 					 if(data[1].length==0){
 								 wikid.insertAdjacentHTML('beforeend', '<li>Pas de résultat pour cette recherche</li>');
 					 }
+
+					 //autrement affiche 10 résultats par défaut
 					 else{console.log(data[1].length);
 								framer.insertAdjacentHTML('beforeend', '<iframe id="dispays" src="'+urlNoJson+'" width="100%" height="900"></iframe>');
 								for(i=0;i<data[1].length;i++){
@@ -94,10 +97,12 @@
 											 wikid.insertAdjacentHTML('beforeend', '<li id="'+i+'">'+answer+'</li>');
 								 } /*end for loop*/
 
+								 //lance l'action pour afficher le contenu dans l'iframe au clique sur une réponse donnée
 					       liqueur(data);
 		 		 	 } /*end else*/
 
 	 }/*end displayDataResult*/
+
 
 	 // affiche dans l'iframe le sujet du <li> cliqué
 	 function liqueur(data){
@@ -129,20 +134,6 @@
 
    inputer.addEventListener("input", function() {console.log("go input listener");
 			 	quelleSource = "onInput";
-
-				/*var bloqueurPresent = document.querySelector('#bloqueur');
-				if (typeof(bloqueurPresent) == "undefined" || bloqueurPresent == null){
-								console.log("hello bloqueur");
-								inputer.insertAdjacentHTML('afterend', '<div id="bloqueur"><ul id="listing"></ul></div>');
-
-				}
-				else{
-							 	console.log("linklist go end blok");
-							 	//var bloqueur = document.querySelector('#bloqueur');
-								//desactive un bloc existant pour eviter de les multiplier
-							 	document.querySelector('.field').removeChild(bloqueur);
-				}*/
-
 			 	goDataJson(quelleSource);
    }); /*end inpouter addEventListener*/
 
