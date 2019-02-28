@@ -17,7 +17,7 @@ https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=terre ou
 - [documentation](https://www.mediawiki.org/w/api.php?action=help&modules=opensearch)
 
 
-## Exercice wikinside.html
+## Exercice [wikinside.html](https://cevaho.github.io/API-fetch-wikipedia/wikinside.html)
 
 Utiliser la même API. Au lieu de faire la recherche via votre navigateur ou Postman, faites la recherche à l'aide d'un input dans votre HTML. 
 - Au submit, faites afficher les résultats de votre recherche dans votre HTML dans un iframe.
@@ -26,7 +26,7 @@ Utiliser la même API. Au lieu de faire la recherche via votre navigateur ou Pos
 - lors du clic sur une proposition, afficher la réponse pour cette proposition
 
 
-## Exercice onkeyup.html
+## Exercice [onkeyup.html](https://cevaho.github.io/API-fetch-wikipedia/onkeyup.html)
 
 Créer une fonctionnalité qui permette de faire une recherche instantanée avec un buffer. Bertrand appelle "buffer" le fait de lancer la recherche vers le serveur uniquement lorsqu'on n'a rien tapé dans l'input après quelques temps (par exemple deux secondes). D'office, ça sera réalisé en asynchrone.
 
